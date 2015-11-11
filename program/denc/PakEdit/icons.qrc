@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/add.png</file>
+        <file>icons/delete.png</file>
+        <file>icons/folder_go.png</file>
+        <file>icons/Quake-icon.png</file>
+    </qresource>
+</RCC>
