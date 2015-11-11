@@ -273,7 +273,7 @@ int MainWindow::closePak()
 int MainWindow::newPak()
 {
   closePak();
-  pakFilename = QFileDialog::getOpenFileName(this, tr("Open File"),"", tr("Pak File (*.pak)"));
+  pakFilename = QFileDialog::getSaveFileName(this, tr("Create new File"),"", tr("Pak File (*.pak)"));
   ui->fileNameLabel->setText(getFileName(pakFilename));
   pakFile->reset();
   setEnableGUI(true);
