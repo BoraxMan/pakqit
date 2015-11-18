@@ -36,7 +36,11 @@
 #include <errno.h>
 #include <map>
 #include <dirent.h>
-#include <sys/statfs.h>
+//#include <sys/statfs.h>
+
+#ifndef CLI
+#include <QDebug>
+#endif
 
 
 #include "directoryentry.h"
@@ -58,7 +62,6 @@ enum Errors {
     DIRECTORY_NOT_OPEN,
 
 };
-
 
 class Pak
 {

@@ -394,12 +394,13 @@ int Pak::importDirectory(const char *importPath, TreeItem *rootItem)
 #ifndef NDEBUG
 #ifdef CLI
     std::cout << "Current Path " << currentPath << std::endl;
+#else
+    qDebug() << "Current Path " << currentPath.c_str();
 #endif
 #endif
-
     struct dirent *entry;
     struct stat statbuf;
-    struct statfs sstat;
+    //struct statfs sstat;
     std::string tmp;
 
     if ((directory = opendir(importPath)) == NULL) {
@@ -410,7 +411,7 @@ int Pak::importDirectory(const char *importPath, TreeItem *rootItem)
 
     while ((entry = readdir(directory)) != NULL) {
         stat(entry->d_name, &statbuf);
-        statfs(entry->d_name, &sstat);
+        //statfs(entry->d_name, &sstat);
 
         if (S_ISDIR(statbuf.st_mode)) {
 

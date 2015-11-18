@@ -62,25 +62,6 @@ QStringList getFileSelections()
   return files;
 }
 
-/*
-QVector<int> qModelIndexListtoVector(const QModelIndexList &list)
-{
-    QVector<int> rowList;
-
-    for (QModelIndex x : list) {
-        rowList.push_back(x.row());
-      }
-
-    qSort(rowList.begin(), rowList.end()); // Because we are deleting items one by one, the row index of each
-    //subseqent item to be deleted will be reduced by one.
-    // We sort the rows we plan to delete, then subtract x from the row number of the subsequent
-    // deletions, where x is the number of rows already deleted.
-
-    return rowList;
-
-}
-*/
-
 
 fileTypes getFileType(QString extension)
 {

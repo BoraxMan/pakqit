@@ -28,7 +28,6 @@ QString getFileName(const QString &x);
 QString getSinglePathSelection();
 QString getSingleFileSelection(); // Not implemented yet.  May not need it.
 QStringList getFileSelections();
-//QVector<int> qModelIndexListtoVector(const QModelIndexList &list);
 
 QMap<QString, fileTypes>& extensionMap();
 #endif // QFUNC_H
