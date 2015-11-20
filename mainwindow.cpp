@@ -53,12 +53,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
   // If we have specified a file, load it
 
-  char ** commandArgs = QApplication::argv();
-  int argNum = QApplication::argc();
-  if (argNum > 1) {
-      if (openPak(commandArgs[1]) == -1) {
+  QStringList arguments = QApplication::arguments();
+
+  if (arguments.size() > 1) {
+      if (openPak(arguments.at(1)) == -1) {
           QString message = "Could not open file ";
-          message += commandArgs[1];
+          message += arguments.at(1);
           throw (PakException("Error opening file", message.toStdString().c_str()));
         }
       setEnableGUI(true);
