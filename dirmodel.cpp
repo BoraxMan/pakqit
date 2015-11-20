@@ -63,7 +63,10 @@ QVariant DirModel::headerData(int section, Qt::Orientation orientation, int role
 
 QModelIndex DirModel::index(int row, int column, const QModelIndex &parent) const
 {
-  return createIndex(row, column, (void*)&treeItem->data(row));
+  if (treeItem != nullptr) {
+      return createIndex(row, column, (void*)&treeItem->data(row));
+    } else return createIndex(row, column, nullptr);
+
 }
 
 
