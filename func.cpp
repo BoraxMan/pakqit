@@ -31,9 +31,8 @@ unsigned long get_mem_total() {
 }
 
 #ifdef CLI
-std::string getFileName(const char* filename)
+std::string getFileName(const std::string &filename)
 {
-    std::string absFilename(filename);
     std::string finalname;
     finalname.reserve(56);
 
@@ -44,9 +43,9 @@ std::string getFileName(const char* filename)
 #endif
     
     const auto fit = it.base();
-    const auto x = absFilename.end() - fit;
+    const auto x = filename.end() - fit;
     finalname.resize(x);
-    std::copy(fit, absFilename.end(), finalname.begin());
+    std::copy(fit, filename.end(), finalname.begin());
     return finalname;  
 }
 
