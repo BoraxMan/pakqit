@@ -10,7 +10,10 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QMAKE_CXXFLAGS += -std=c++0x
 TARGET = pakqit
 TEMPLATE = app
-CONFIG += debug
+
+CONFIG(release, debug|release):DEFINES += QT_NO_DEBUG_OUTPUT
+CONFIG(release, debug|release):DEFINES += NDEBUG
+CONFIG(release, debug|release):QMAKE_CXXFLAGS += -fexpensive-optimizations
 
 SOURCES += main.cpp\
         mainwindow.cpp \
@@ -57,7 +60,7 @@ DISTFILES += \
 
 documentation.files = doc/README doc/LICENSE
 applications.files = menu/pakqit.desktop
-icons.files = graphics/pakqit.png
+icons.files = icons/pakqit.png
 
 target.path = $$PREFIX/usr/bin
 documentation.path = $$PREFIX/usr/share/pakqit/doc
