@@ -177,7 +177,9 @@ int MainWindow::openPak(QString filename)
 
 int MainWindow::openPak()
 {
-  QString filename  = QFileDialog::getOpenFileName(this, tr("Open File"),"", tr("Pak File (*.pak)"));
+  QString fname  = QFileDialog::getOpenFileName(this, tr("Open File"),"", tr("Pak File (*.pak)"));
+  QString filename = QDir::toNativeSeparators(fname);
+
   if (!filename.isNull()) {
       closePak();
     } else {
@@ -213,8 +215,8 @@ int MainWindow::savePakAs()
 
   if (fileDialog.exec()) {
 
-      QString filename = fileDialog.selectedFiles().first();
-
+      QString fname = fileDialog.selectedFiles().first();
+      QString filename = QDir::toNativeSeparators(fname);
       if (!filename.isNull()) {
           pakFilename = filename;
           ui->fileNameLabel->setText(getFileName(pakFilename));
@@ -273,7 +275,9 @@ int MainWindow::closePak()
 int MainWindow::newPak()
 {
   closePak();
-  pakFilename = QFileDialog::getSaveFileName(this, tr("Create new File"),"", tr("Pak File (*.pak)"));
+  QString fname = QFileDialog::getSaveFileName(this, tr("Create new File"),"", tr("Pak File (*.pak)"));
+  pakFilename = QDir::toNativeSeparators(fname);
+
   ui->fileNameLabel->setText(getFileName(pakFilename));
   pakFile->reset();
   setEnableGUI(true);
@@ -379,7 +383,8 @@ void MainWindow::importFile()
 
   QStringList files = getFileSelections();
 
-  for (QString x : files) {
+  for (QString file : files) {
+      QString x = QDir::toNativeSeparators(file);
       DirectoryEntry newEntry;
       QString path = QString(destination->pathLabel().c_str());
       dirmodel->beginEditing();

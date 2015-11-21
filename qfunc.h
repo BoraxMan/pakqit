@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QMap>
 #include <QFileInfo>
+#include <QDir>
 #include <QFileDialog>
 #include <QModelIndexList>
 #include <QMessageBox>

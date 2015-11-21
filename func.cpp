@@ -36,7 +36,12 @@ std::string getFileName(const char* filename)
     std::string absFilename(filename);
     std::string finalname;
     finalname.reserve(56);
+
+#ifdef __linux
     const auto it = std::find(absFilename.rbegin(), absFilename.rend(), '/');
+#else
+    const auto it = std::find(absFilename.rbegin(), absFilename.rend(), '\\');
+#endif
     
     const auto fit = it.base();
     const auto x = absFilename.end() - fit;
@@ -52,7 +57,13 @@ std::string absoluteFileName(std::array< char, int(PAK_DATA_LABEL_SIZE) > fname)
 {
     std::string filename;
     filename.reserve(PAK_DATA_LABEL_SIZE);
+
+#ifdef __linux
     const auto it = std::find(fname.rbegin(), fname.rend(), '/');
+#else
+    const auto it = std::find(fname.rbegin(), fname.rend(), '\\');
+#endif
+
     const auto fit = it.base();
     const auto x = fname.end() - fit;
     filename.resize(x);

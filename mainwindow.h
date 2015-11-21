@@ -32,6 +32,7 @@
 #include <QMap>
 #include <QVector>
 #include <QShortcut>
+#include <QDir>
 #include <algorithm>
 
 #include "pakmodel.h"

@@ -32,7 +32,8 @@ QString getSinglePathSelection()
   QFileDialog fileDialog;
   fileDialog.setFileMode(QFileDialog::Directory);
   fileDialog.setViewMode(QFileDialog::Detail);
-  fileDialog.setOption(QFileDialog::ShowDirsOnly);
+  fileDialog.setOption(QFileDialog::ShowDirsOnly, true);
+  fileDialog.setOption(QFileDialog::DontUseNativeDialog, true);
 
   QStringList files;
   if (fileDialog.exec()) {
@@ -43,7 +44,7 @@ QString getSinglePathSelection()
       return QString();
     }
 
-  QString path = files.at(0);
+  QString path = QDir::toNativeSeparators(files.at(0));
   return path;
 }
 
