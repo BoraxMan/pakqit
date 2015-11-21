@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QMAKE_CXXFLAGS += -std=c++0x
-TARGET = PakEdit
+TARGET = pakqit
 TEMPLATE = app
 CONFIG += debug
 
@@ -47,6 +47,23 @@ RESOURCES += \
     icons.qrc
 
 DISTFILES += \
-    README
+    README pakqit.spec menu/pakqit.desktop doc/LICENSE
+
+
+
+DISTFILES += \
+    checkitgui.spec graphics/checkitgui.png menu/checkitgui.desktop \
+    doc/LICENSE
+
+documentation.files = doc/README doc/LICENSE
+applications.files = menu/pakqit.desktop
+icons.files = graphics/pakqit.png
+
+target.path = $$PREFIX/usr/bin
+documentation.path = $$PREFIX/usr/share/pakqit/doc
+applications.path = $$PREFIX/usr/share/applications
+icons.path = $$PREFIX/usr/share/icons/hicolor/64x64/apps
+
+INSTALLS += target documentation applications icons
 
 #CONFIG = release

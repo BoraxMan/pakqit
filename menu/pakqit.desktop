@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Pakqit
+Exec=pakqit
+Comment=PAK file editor for Quake engine games
+Icon=pakqit
+Terminal=false
+Categories=Games
+StartupNotify=false
+X-Desktop-File-Install-Version=0.22
