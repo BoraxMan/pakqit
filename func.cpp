@@ -37,9 +37,9 @@ std::string getFileName(const std::string &filename)
     finalname.reserve(56);
 
 #ifdef __linux
-    const auto it = std::find(absFilename.rbegin(), absFilename.rend(), '/');
+    const auto it = std::find(filename.rbegin(), filename.rend(), '/');
 #else
-    const auto it = std::find(absFilename.rbegin(), absFilename.rend(), '\\');
+    const auto it = std::find(filename.rbegin(), filename.rend(), '\\');
 #endif
     
     const auto fit = it.base();
@@ -92,4 +92,18 @@ void stringToArray(std::string s, std::array< char, int(PAK_DATA_LABEL_SIZE) > &
     }
 
 }
+
+void clearArrayAfterNull ( std::array< char, int ( PAK_DATA_LABEL_SIZE ) >& array ) {
+    auto pos = std::find ( array.begin(), array.end(), char ( 0 ) );
+    if ( pos == array.end() ) {
+        return;
+    } else {
+        while ( pos != array.end() ) {
+            *pos = char ( 0 );
+            ++pos;
+        }
+    }
+    return;
+}
+
 
