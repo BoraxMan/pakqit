@@ -27,7 +27,7 @@ make install
 
 
 %files
-%{_bindir}/
+%{_bindir}/*
 %{_datadir}/applications/pakqit.desktop
 %{_datadir}/icons/hicolor/64x64/apps/pakqit.png
 %{_docdir}/*

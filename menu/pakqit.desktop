@@ -6,6 +6,6 @@ Exec=pakqit
 Comment=PAK file editor for Quake engine games
 Icon=pakqit
 Terminal=false
-Categories=Games
+Categories=Game;
 StartupNotify=false
 X-Desktop-File-Install-Version=0.22
