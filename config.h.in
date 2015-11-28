@@ -1,0 +1,5 @@
+#ifndef CONFIG_H_IN
+#define CONFIG_H_IN
+#define Version \"$$VERSION\"
+#endif // CONFIG_H_IN
+

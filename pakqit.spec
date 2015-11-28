@@ -1,4 +1,4 @@
-Summary: PAK file editor for Quake engine games
+Summary: Graphical PAK file editor for Quake engine games
 Name: pakqit
 Version: 0.1.0
 Release: 1
@@ -27,14 +27,26 @@ make install
 
 
 %files
-%{_bindir}/pakqit
-/usr/share/applications/pakqit.desktop
-/usr/share/icons/hicolor/64x64/apps/pakqit.png
-/usr/share/pakqit/doc/README
-/usr/share/pakqit/doc/LICENSE
+%{_bindir}/
+%{_datadir}/applications/pakqit.desktop
+%{_datadir}/icons/hicolor/64x64/apps/pakqit.png
+%{_docdor}/*
 
 
 %defattr(-,root,root,-)
+
+%post
+/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
+
+%postun
+if [ $1 -eq 0 ] ; then
+    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+fi
+
+%posttrans
+/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+
 
 
 %clean

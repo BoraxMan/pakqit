@@ -6,6 +6,7 @@
 
 QT       += core gui
 
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QMAKE_CXXFLAGS += -std=c++0x
 TARGET = pakqit
@@ -40,7 +41,8 @@ HEADERS  += mainwindow.h \
     paktreeview.h \
     pakexception.h \
     manual.h \
-    qfunc.h
+    qfunc.h \
+    config.h.in
 
 FORMS    += mainwindow.ui \
     about.ui \
@@ -50,22 +52,39 @@ RESOURCES += \
     icons.qrc
 
 DISTFILES += \
-    README pakqit.spec menu/pakqit.desktop doc/LICENSE
+    README pakqit.spec menu/pakqit.desktop doc/LICENSE \
+    pakqit.rc
+
+VERSION = 0.1.0
+
+versionconfig.input = config.h.in
+versionconfig.output = config.h
+QMAKE_SUBSTITUTES += versionconfig
 
 
+FILE = $$TARGET-$$VERSION
+EXTENSION=".tar.gz"
+
+
+spec.input = pakqit.spec.in
+spec.output = $$PWD/pakqit.spec
+QMAKE_SUBSTITUTES += spec
+
+win32: RC_FILE += pakqit.rc
+win32: RC_ICONS = Quake-icon.ico
 
 DISTFILES += \
     checkitgui.spec graphics/checkitgui.png menu/checkitgui.desktop \
     doc/LICENSE
 
-documentation.files = doc/README doc/LICENSE
+documentation.files = doc/README.md doc/LICENSE
 applications.files = menu/pakqit.desktop
 icons.files = icons/pakqit.png
 
-target.path = $$PREFIX/usr/bin
-documentation.path = $$PREFIX/usr/share/pakqit/doc
-applications.path = $$PREFIX/usr/share/applications
-icons.path = $$PREFIX/usr/share/icons/hicolor/64x64/apps
+target.path = $$PREFIX/bin
+documentation.path = $$PREFIX/share/doc/$$TARGET
+applications.path = $$PREFIX/share/applications
+icons.path = $$PREFIX/share/icons/hicolor/64x64/apps
 
 INSTALLS += target documentation applications icons
 

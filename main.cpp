@@ -27,12 +27,14 @@
 #include <QDebug>
 #include "pakexception.h"
 #include "exceptionhandler.h"
+#include "config.h"
+
 
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-  qDebug() << "Debug mode!";
+  qDebug() << "Debug mode!" << Version;
   int result;
 
   QApplication a(argc, argv);
