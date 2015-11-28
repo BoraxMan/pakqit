@@ -81,10 +81,10 @@ documentation.files = doc/README.md doc/LICENSE
 applications.files = menu/pakqit.desktop
 icons.files = icons/pakqit.png
 
-target.path = $$PREFIX/bin
-documentation.path = $$PREFIX/share/doc/$$TARGET
-applications.path = $$PREFIX/share/applications
-icons.path = $$PREFIX/share/icons/hicolor/64x64/apps
+target.path = $$PREFIX/usr/bin
+documentation.path = $$PREFIX/usr/share/doc/$$TARGET
+applications.path = $$PREFIX/usr/share/applications
+icons.path = $$PREFIX/usr/share/icons/hicolor/64x64/apps
 
 INSTALLS += target documentation applications icons
 
