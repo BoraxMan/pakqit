@@ -30,7 +30,7 @@ make install
 %{_bindir}/
 %{_datadir}/applications/pakqit.desktop
 %{_datadir}/icons/hicolor/64x64/apps/pakqit.png
-%{_docdor}/*
+%{_docdir}/*
 
 
 %defattr(-,root,root,-)
