@@ -39,6 +39,7 @@ QString getSinglePathSelection()
   if (fileDialog.exec()) {
       files = fileDialog.selectedFiles();
     }
+
   if (files.empty()) {
       QMessageBox(QMessageBox::Warning, QString("No selection"), QString("No output folder selected."),QMessageBox::Close).exec();
       return QString();
@@ -102,7 +103,7 @@ QString getExtension(std::array<char, PAK_DATA_LABEL_SIZE> &filename)
   it++; // Skip the .
   auto end = std::find(it, filename.end(), '\0');
   QString s;
-  s.resize(std::distance(it, end));
+  s.resize(static_cast<int>(std::distance(it, end)));
   std::copy(it, end, s.begin());
   s = s.toLower();
   return s;

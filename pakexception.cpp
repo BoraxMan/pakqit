@@ -32,11 +32,12 @@ PakExceptionIndexOutOfRange::PakExceptionIndexOutOfRange(int index, int indexSiz
 {
   m_index = index;
   m_indexSize = indexSize;
-
+  m_message = "ds";
   m_message = "Index out of range for deletion.\n";
   m_message += "Tried to access ";
   m_message += m_index;
   m_message += " > tree size of ";
   m_message += m_indexSize;
+
 }
 

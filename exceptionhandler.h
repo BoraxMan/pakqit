@@ -20,6 +20,7 @@
 
 #ifndef EXCEPTIONHANDLER_H
 #define EXCEPTIONHANDLER_H
+#include <QFlags>
 #include <QMessageBox>
 
 #include "pak.h"

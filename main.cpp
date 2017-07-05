@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
 
   a.setOrganizationName("Dekay Software");
   a.setApplicationName("pakqit");
+  qDebug << "Test";
 
   // Initialise the QMap with known types.
   // We map to the type, and not a descriptive string
