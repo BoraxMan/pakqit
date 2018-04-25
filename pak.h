@@ -73,7 +73,7 @@ public:
     Pak();
     ~Pak();
 
-    int open(const char *filename);
+    int open(const char *filename, bool createIfNew = false);
     int close();
     int exportPak(const char *exportPath);
     int exportDirectory(const char *exportPath, TreeItem *rootItem = nullptr);
@@ -90,6 +90,9 @@ public:
     void setVerbose(bool verbosity);
     std::fstream &getFileHandle(void);
     int addEntry(std::string path, const char*filename, TreeItem *rootItem);
+#ifdef CLI
+    void printChild(TreeItem *item);
+#endif
 private:
     size_t memused;
     bool verbose;
@@ -97,6 +100,7 @@ private:
     std::array<char, 4> signature;
     int32_t directoryOffset;
     int32_t directoryLength;
+    int32_t thisDirectoryEntryOffset;
     int numEntries;
 // std::vector<DirectoryEntry> entries;
     TreeItem m_rootEntry;
@@ -107,9 +111,7 @@ private:
 
     void resetPakDirectory();
     void makeDirectoryTree(TreeItem *item);
-#ifdef CLI
-    void printChild(TreeItem *item);
-#endif
+
     void loadDir(DirectoryEntry entry);
     int writePakDir(TreeItem *item);
     void loadData(DirectoryEntry &entry);
