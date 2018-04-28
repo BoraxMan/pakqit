@@ -119,7 +119,7 @@ void MainWindow::about()
   QDialog dialog;
   Ui::Dialog aboutDialog;
   aboutDialog.setupUi(&dialog);
-  aboutDialog.versionLabel->setText(XVERSION);
+  aboutDialog.versionLabel->setText(Version);
   dialog.exec();
 }
 

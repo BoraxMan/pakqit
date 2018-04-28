@@ -43,9 +43,7 @@
 #include "ui_manual.h"
 #include "pak.h"
 #include "exceptionhandler.h"
-
-
-#define XVERSION "0.1.0"
+#include "config.h"
 
 namespace Ui {
   class MainWindow;
