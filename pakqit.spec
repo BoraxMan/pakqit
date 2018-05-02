@@ -1,10 +1,10 @@
 Summary: Graphical PAK file editor for Quake engine games
 Name: pakqit
-Version: 0.1.1
+Version: 0.2.0
 Release: 1
 License: GPLv2
 Group: System
-Source: http://dennisk.customer.netspace.net.au/pakqit/pakqit-0.1.1.tar.gz
+Source: http://dennisk.customer.netspace.net.au/pakqit/pakqit-0.2.0.tar.gz
 URL: http://dennisk.customer.netspace.net.au/pakqit.html
 Distribution: Fedora
 Vendor: Dekay Software

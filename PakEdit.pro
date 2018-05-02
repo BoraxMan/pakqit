@@ -55,7 +55,7 @@ DISTFILES += \
     README pakqit.spec menu/pakqit.desktop doc/LICENSE \
     pakqit.rc
 
-VERSION = 0.1.1
+VERSION = 0.2.0
 
 versionconfig.input = config.h.in
 versionconfig.output = config.h

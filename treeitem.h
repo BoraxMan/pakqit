@@ -70,8 +70,10 @@ public:
     TreeItem *findChild ( std::string searchTerm, bool create = false ); // Returns the child that matches the directory.  Creates one if it does not exist if flag set                              
     DirectoryEntry &data ( unsigned int row );
     DirectoryEntry* findEntry ( const std::string searchTerm );
+    int findEntryRow ( const std::string searchTerm );
     TreeItem *parentItem();
     void deleteItem(const unsigned int row);
+    TreeItem *findTreeItem(const std::string path, const bool createIfNotfound = false);
 private:
     std::vector<std::unique_ptr<TreeItem>> childItems;
     std::vector<DirectoryEntry> items;

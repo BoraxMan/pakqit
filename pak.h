@@ -21,12 +21,12 @@
 #ifndef PAK_H
 #define PAK_H
 
-#include <iostream>
 #include <fstream>
 #include <array>
 #include <cstdint>
 #include <vector>
 #include <cstring>
+#include <string>
 #include <set>
 #include <algorithm>
 #include <sys/types.h>
@@ -40,6 +40,9 @@
 
 #ifndef CLI
 #include <QDebug>
+#endif
+#ifdef CLI
+#include <iostream>
 #endif
 
 
@@ -85,7 +88,9 @@ public:
     void reset(); // Clears the pak file.  Start new.  // Loses all changes
     TreeItem *addChild(stringList &dirList, TreeItem *entry);
     void deleteChild(TreeItem *entry, const int row);
+    void deleteChild(std::string path);
     void deleteEntry(TreeItem *root, const int row);
+    void deleteEntry(const std::string entry); // Incomplete.
     void updateIndex(DirectoryEntry &entry);
     TreeItem *rootEntry(void);
     void setVerbose(bool verbosity);
@@ -106,7 +111,6 @@ private:
 // std::vector<DirectoryEntry> entries;
     TreeItem m_rootEntry;
     std::fstream file;
-    int currentPakDataPosition;
     bool loadingDir; // This is used by importDir so that when it calls itself, it knows whether is in the the process
     // of recursion, or just starting.
 
