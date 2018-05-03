@@ -423,9 +423,11 @@ int Pak::addEntry(std::string path, const char *filename, TreeItem *rootItem)
     newEntry.setPosition(directoryOffset);
     directoryOffset = safeAdd(directoryOffset, filesize);
     rootItem->appendItem(newEntry);
+#ifdef CLI
     if (verbose) {
       std::cout << path << "\t" << newEntry.getLength() << " bytes \n";
     }
+#endif
     return NO_ERROR;
 }
 
