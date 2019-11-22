@@ -210,7 +210,7 @@ DirectoryEntry* TreeItem::findEntry ( const std::string searchTerm )
 int TreeItem::findEntryRow ( const std::string searchTerm )
 {
   if (searchTerm.length() == 0) return -1;
-  std::string absFile;
+
   for (int x{0}; x < items.size(); x++)
     {
 #ifdef CLI
@@ -218,8 +218,12 @@ int TreeItem::findEntryRow ( const std::string searchTerm )
 #else
       absFile = absoluteFileName(items[x].filename).toStdString();
 #endif
+      auto absFile =  absoluteFileName(items[x].filename);
+#ifdef CLI
       if ( searchTerm == absFile )
-	{
+#else
+      if ( searchTerm == absFile.toStdString() ) {
+#endif
 	  assert(x < items.size());
 	  return x;
 	}
