@@ -19,7 +19,7 @@
 class QStringList;
 
 fileTypes getFileType(QString extension);
-
+bool confirmOverwrite(QString filename);
 QString absoluteFileName(std::array<char, PAK_DATA_LABEL_SIZE> fname);
 QString arrayToQString(std::array<char, PAK_DATA_LABEL_SIZE> &filename);
 //void stringToArray(std::string s, std::array<char, PAK_DATA_LABEL_SIZE> &arrai);

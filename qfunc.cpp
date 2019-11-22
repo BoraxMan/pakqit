@@ -109,3 +109,25 @@ QString getExtension(std::array<char, PAK_DATA_LABEL_SIZE> &filename)
   return s;
 }
 
+
+bool confirmOverwrite(QString filename)
+{
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("File exists");
+    msgBox.setText(filename);
+    msgBox.setInformativeText("This file already exists.  Do you want to save and overwrite?");
+    msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+    msgBox.setDefaultButton(QMessageBox::Cancel);
+    int result = msgBox.exec();
+    switch (result) {
+      case QMessageBox::Ok:
+        return true;
+        break;
+      case QMessageBox::Cancel:
+        return false;
+        break;
+      default:
+        return false;
+      }
+    return false;
+}
